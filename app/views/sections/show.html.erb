@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h1>Show Section</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @section.name %></dd>
+  <dt>Position:</strong></dt>
+  <dd><%= @section.position %></dd>
+  <dt><strong>Visible:</strong></dt>
+  <dd><%= status_tag(@section.visible) %></dd>
+  <dt><strong>Content Type:</strong></dt>
+  <dd><%= @section.content_type %></dd>
+  <dt><strong>Content:</strong></dt>
+  <dd><%= @section.content %></dd>
+  <dt><strong>Created at:</strong></dt>
+  <dd><%= @section.created_at.strftime("%B %d, %Y @ %I:%M %p") %></dd>
+  <dt><strong>Last updated:</strong></dt>
+  <dd><%= time_ago_in_words(@section.updated_at) %> ago</dd>
+</dl>
+
+<%= link_to('Back',  subject_page_sections_path, :class => 'btn btn-default')  %>
+<%= link_to('Edit', edit_subject_page_section_path(@subject.id, @page.id, @section.id), :class => 'btn btn-default') %>
+<%= link_to('Delete', subject_page_section_path(@subject.id, @page.id, @section.id), :class => 'btn btn-danger') %>

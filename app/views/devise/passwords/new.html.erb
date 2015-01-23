@@ -1,0 +1,15 @@
+
+<div class="form-signin">
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+  <h2>Forgot your password?</h2>
+    
+    <%= f.label :email, :class => 'sr-only' %><br />
+    <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Email' %>
+
+    <%= f.submit "Send Reset Password Instructions", :class =>'btn btn-lg btn-default btn-block' %>
+
+<% end %>
+<hr>
+<%= render "devise/shared/links" %>

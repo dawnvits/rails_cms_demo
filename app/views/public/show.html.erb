@@ -1,0 +1,11 @@
+<div class="page-header">
+	<h1><%= @page.name %></h1>
+</div>
+<% @page.sections.visible.sorted.each do |section| %>
+    <% case section.content_type %>
+	    <% when 'HTML' %>
+	      <p class="lead"><%= raw(sanitize(section.content, :tags => ['strong', 'em', 'a'])) %></p><br>
+	    <% when 'text' %>
+	      <p class="lead"><%= section.content %></p><br>
+    <% end %>
+<% end %>

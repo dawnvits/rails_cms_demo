@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>Show Page</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @page.name %></dd>
+  <dt>Position:</strong></dt>
+  <dd><%= @page.position %></dd>
+  <dt><strong>Visible:</strong></dt>
+  <dd><%= status_tag(@page.visible) %></dd>
+  <dt><strong>Permalink:</strong></dt>
+  <dd><%= @page.permalink %></dd>
+  <dt><strong>Created at:</strong></dt>
+  <dd><%= @page.created_at.strftime("%B %d, %Y @ %I:%M %p") %></dd>
+  <dt><strong>Last updated:</strong></dt>
+  <dd><%= time_ago_in_words(@page.updated_at) %> ago</dd>
+</dl>
+
+<%= link_to('Back', subject_pages_path, :class => 'btn btn-default')  %>
+<%= link_to('Edit', edit_subject_page_path(@subject.id, @page.id), :class => 'btn btn-default') %>
+<%= link_to('Delete', delete_subject_page_path(@subject.id, @page.id), :class => 'btn btn-danger') %>

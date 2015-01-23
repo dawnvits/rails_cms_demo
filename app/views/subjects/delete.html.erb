@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1 class="text-center">Are you sure you want to permanently remove <%= @subject.name %>?</h1>
+</div>
+
+<center>
+<%= link_to('Delete', subject_path(@subject.id), :method => :delete, :class => 'btn btn-danger') %>
+<%= link_to('Cancel', subjects_path, :class => 'btn btn-default')  %>
+</center>

@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1>Show Subject</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @subject.name %></dd>
+  <dt>Position:</strong></dt>
+  <dd><%= @subject.position %></dd>
+  <dt><strong>Visible:</strong></dt>
+  <dd><%= status_tag(@subject.visible) %></dd>
+  <dt><strong>Created at:</strong></dt>
+  <dd><%= @subject.created_at.strftime("%B %d, %Y @ %I:%M %p") %></dd>
+  <dt><strong>Last updated:</strong></dt>
+  <dd><%= time_ago_in_words(@subject.updated_at) %> ago</dd>
+</dl>
+
+<%= link_to('Back', subjects_path, :class => 'btn btn-default')  %>
+<%= link_to('Edit', edit_subject_path(@subject.id), :class => 'btn btn-default') %>
+<%= link_to('Delete', delete_subject_path(@subject.id), :class => 'btn btn-danger') %>

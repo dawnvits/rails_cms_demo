@@ -1,0 +1,41 @@
+<div class="page-header">
+   <h1>Sections for <%= @page.name %>
+   <div class="btn-group pull-right"> 
+     <%= link_to('Add Section',  new_subject_page_section_path, :class => 'btn btn-primary' ) %>
+     <%= link_to("Back to Pages", subject_pages_path(@subject.id, @page.id), :class => 'btn btn-default' ) %>
+     <%= link_to('Back to Subjects', subjects_path, :class => 'btn btn-default' ) %>
+   </div>
+  </h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center">Position</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Visible</th>
+      <th class="text-center">Content Type</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td class="text-center"><%= section.position %></td>
+        <td class="text-center"><%= link_to section.name, subject_page_section_path(@subject.id, @page.id, section.id) %></td>
+        <td class="text-center"><%= status_tag(section.visible) %></td>
+        <td class="text-center"><%= section.content_type %></td>
+        <td class="text-center">
+          <%= link_to('Edit', edit_subject_page_section_path(@subject.id, @page.id,section.id), :class => 'btn btn-default btn-xs' ) %>
+          <%= link_to('Delete',delete_subject_page_section_path(@subject.id, @page.id, section.id), :class => 'btn btn-xs btn-default' ) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<center><%= will_paginate @sections, renderer: BootstrapPagination::Rails %>
+</center>
+
+
+

@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>Subjects 
+     <div class="btn-group pull-right">
+     <%= link_to('New Subject', new_subject_path, :class => 'btn btn-primary' ) %> 
+     <%= link_to('Back to Home Page', root_path, :class => 'btn btn-default' ) %>
+      </div>
+   </h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-center">Position</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Visible</th>
+      <th class="text-center">Pages</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td class="text-center"><%= subject.position %></td>
+        <td class="text-center"><%= link_to subject.name, subject_path(subject) %></td>
+        <td class="text-center"><%= status_tag(subject.visible) %></td>
+        <td class="text-center"><%= link_to subject.pages.size, subject_pages_path(subject.id) %></td>
+        <td class="text-center">
+          <%= link_to('Edit', edit_subject_path(subject.id), :class => 'btn btn-default btn-xs' ) %>
+          <%= link_to('Delete', delete_subject_path(subject.id), :class => 'btn btn-xs btn-default', :span => 'fa fa-edit' ) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<center><%= will_paginate @subjects, renderer: BootstrapPagination::Rails %>
+</center>
+
