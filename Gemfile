@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
+ruby "2.1.3"
 
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'acts_as_list'
 gem 'will_paginate-bootstrap'
+gem 'rails_serve_static_assets'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -41,4 +43,6 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'rails_12factor', group: :production
 
